@@ -23,7 +23,7 @@ package com.shatteredpixel.shatteredpixeldungeon.scenes;
 
 import com.shatteredpixel.shatteredpixeldungeon.Chrome;
 import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.services.news.News;
@@ -145,7 +145,7 @@ public class NewsScene extends PixelScene {
 			@Override
 			protected void onClick() {
 				super.onClick();
-				ShatteredPixelDungeon.platform.openURI("https://ShatteredPixel.com");
+				SurvivalAfterDungeon.platform.openURI("https://ShatteredPixel.com");
 			}
 		};
 		btnSite.icon(Icons.get(Icons.NEWS));
@@ -157,13 +157,13 @@ public class NewsScene extends PixelScene {
 
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade( TitleScene.class );
+		SurvivalAfterDungeon.switchNoFade( TitleScene.class );
 	}
 
 	@Override
 	public void update() {
 		if (displayingNoArticles && News.articlesAvailable()){
-			ShatteredPixelDungeon.seamlessResetScene();
+			SurvivalAfterDungeon.seamlessResetScene();
 		}
 		super.update();
 	}
@@ -196,7 +196,7 @@ public class NewsScene extends PixelScene {
 								super.onClick();
 								SPDSettings.WiFi(false);
 								News.checkForNews();
-								ShatteredPixelDungeon.seamlessResetScene();
+								SurvivalAfterDungeon.seamlessResetScene();
 							}
 						};
 						add(button);
@@ -212,7 +212,7 @@ public class NewsScene extends PixelScene {
 							super.onClick();
 							SPDSettings.news(true);
 							News.checkForNews();
-							ShatteredPixelDungeon.seamlessResetScene();
+							SurvivalAfterDungeon.seamlessResetScene();
 						}
 					};
 					add(button);
@@ -297,7 +297,7 @@ public class NewsScene extends PixelScene {
 			if (article.date.getTime() > SPDSettings.newsLastRead()){
 				SPDSettings.newsLastRead(article.date.getTime());
 			}
-			ShatteredPixelDungeon.scene().addToFront(new WndArticle(article));
+			SurvivalAfterDungeon.scene().addToFront(new WndArticle(article));
 		}
 	}
 
@@ -310,7 +310,7 @@ public class NewsScene extends PixelScene {
 				@Override
 				protected void onClick() {
 					super.onClick();
-					ShatteredPixelDungeon.platform.openURI(article.URL);
+					SurvivalAfterDungeon.platform.openURI(article.URL);
 				}
 			};
 			link.setRect(0, height + 2, width, BTN_HEIGHT);

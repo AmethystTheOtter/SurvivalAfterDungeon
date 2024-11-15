@@ -27,7 +27,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Chrome;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.GamesInProgress;
 import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.effects.BannerSprites;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Fireball;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
@@ -116,9 +116,9 @@ public class TitleScene extends PixelScene {
 				if (GamesInProgress.checkAll().size() == 0){
 					GamesInProgress.selectedClass = null;
 					GamesInProgress.curSlot = 1;
-					ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+					SurvivalAfterDungeon.switchScene(HeroSelectScene.class);
 				} else {
-					ShatteredPixelDungeon.switchNoFade( StartScene.class );
+					SurvivalAfterDungeon.switchNoFade( StartScene.class );
 				}
 			}
 			
@@ -128,7 +128,7 @@ public class TitleScene extends PixelScene {
 				if (DeviceCompat.isDebug()) {
 					GamesInProgress.selectedClass = null;
 					GamesInProgress.curSlot = 1;
-					ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+					SurvivalAfterDungeon.switchScene(HeroSelectScene.class);
 					return true;
 				}
 				return super.onLongClick();
@@ -143,7 +143,7 @@ public class TitleScene extends PixelScene {
 		StyledButton btnRankings = new StyledButton(GREY_TR,Messages.get(this, "rankings")){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.switchNoFade( RankingsScene.class );
+				SurvivalAfterDungeon.switchNoFade( RankingsScene.class );
 			}
 		};
 		btnRankings.icon(Icons.get(Icons.RANKINGS));
@@ -153,7 +153,7 @@ public class TitleScene extends PixelScene {
 		StyledButton btnBadges = new StyledButton(GREY_TR, Messages.get(this, "journal")){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.switchNoFade( JournalScene.class );
+				SurvivalAfterDungeon.switchNoFade( JournalScene.class );
 			}
 		};
 		btnBadges.icon(Icons.get(Icons.JOURNAL));
@@ -173,7 +173,7 @@ public class TitleScene extends PixelScene {
 		StyledButton btnAbout = new StyledButton(GREY_TR, Messages.get(this, "about")){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.switchScene( AboutScene.class );
+				SurvivalAfterDungeon.switchScene( AboutScene.class );
 			}
 		};
 		btnAbout.icon(Icons.get(Icons.SHPX));
@@ -270,7 +270,7 @@ public class TitleScene extends PixelScene {
 		@Override
 		protected void onClick() {
 			super.onClick();
-			ShatteredPixelDungeon.switchNoFade( NewsScene.class );
+			SurvivalAfterDungeon.switchNoFade( NewsScene.class );
 		}
 	}
 
@@ -302,7 +302,7 @@ public class TitleScene extends PixelScene {
 			if (Updates.updateAvailable()){
 				AvailableUpdateData update = Updates.updateData();
 
-				ShatteredPixelDungeon.scene().addToFront( new WndOptions(
+				SurvivalAfterDungeon.scene().addToFront(new WndOptions(
 						Icons.get(Icons.CHANGES),
 						update.versionName == null ? Messages.get(this,"title") : Messages.get(this,"versioned_title", update.versionName),
 						update.desc == null ? Messages.get(this,"desc") : update.desc,
@@ -315,14 +315,14 @@ public class TitleScene extends PixelScene {
 							Updates.launchUpdate(Updates.updateData());
 						} else if (index == 1){
 							ChangesScene.changesSelected = 0;
-							ShatteredPixelDungeon.switchNoFade( ChangesScene.class );
+							SurvivalAfterDungeon.switchNoFade( ChangesScene.class );
 						}
 					}
 				});
 
 			} else {
 				ChangesScene.changesSelected = 0;
-				ShatteredPixelDungeon.switchNoFade( ChangesScene.class );
+				SurvivalAfterDungeon.switchNoFade( ChangesScene.class );
 			}
 		}
 
@@ -354,7 +354,7 @@ public class TitleScene extends PixelScene {
 			if (Messages.lang().status() == Languages.Status.X_UNFINISH){
 				WndSettings.last_index = 5;
 			}
-			ShatteredPixelDungeon.scene().add(new WndSettings());
+			SurvivalAfterDungeon.scene().add(new WndSettings());
 		}
 	}
 
@@ -368,7 +368,7 @@ public class TitleScene extends PixelScene {
 
 		@Override
 		protected void onClick() {
-			ShatteredPixelDungeon.switchNoFade(SupporterScene.class);
+			SurvivalAfterDungeon.switchNoFade(SupporterScene.class);
 		}
 	}
 }

@@ -26,7 +26,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.Rankings;
 import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Flare;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
@@ -151,7 +151,7 @@ public class RankingsScene extends PixelScene {
 			IconButton btnDailies = new IconButton(Icons.CALENDAR.get()) {
 				@Override
 				protected void onClick() {
-					ShatteredPixelDungeon.scene().addToFront(new WndDailies());
+					SurvivalAfterDungeon.scene().addToFront(new WndDailies());
 				}
 
 				@Override
@@ -184,7 +184,7 @@ public class RankingsScene extends PixelScene {
 
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade(TitleScene.class);
+		SurvivalAfterDungeon.switchNoFade(TitleScene.class);
 	}
 	
 	public static class Record extends Button {

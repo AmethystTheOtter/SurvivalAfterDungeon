@@ -25,7 +25,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.SPDAction;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.Statistics;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.CrystalSpire;
@@ -252,7 +252,7 @@ public class WndJournal extends WndTabbed {
 					@Override
 					public boolean onClick(float x, float y) {
 						if (inside( x, y ) && found) {
-							ShatteredPixelDungeon.scene().addToFront( new WndStory( Document.ADVENTURERS_GUIDE.pageSprite(page),
+							SurvivalAfterDungeon.scene().addToFront( new WndStory( Document.ADVENTURERS_GUIDE.pageSprite(page),
 									Document.ADVENTURERS_GUIDE.pageTitle(page),
 									Document.ADVENTURERS_GUIDE.pageBody(page) ));
 							Document.ADVENTURERS_GUIDE.readPage(page);
@@ -837,10 +837,10 @@ public class WndJournal extends WndTabbed {
 					if (inside(x, y)) {
 						Image sprite = new ItemSprite();
 						sprite.copy(icon);
-						if (ShatteredPixelDungeon.scene() instanceof GameScene){
+						if (SurvivalAfterDungeon.scene() instanceof GameScene){
 							GameScene.show(new WndJournalItem(sprite, finalTitle, finalDesc));
 						} else {
-							ShatteredPixelDungeon.scene().addToFront(new WndJournalItem(sprite, finalTitle, finalDesc));
+							SurvivalAfterDungeon.scene().addToFront(new WndJournalItem(sprite, finalTitle, finalDesc));
 						}
 						return true;
 					} else {
@@ -967,10 +967,10 @@ public class WndJournal extends WndTabbed {
 							image = new Image(icon);
 						}
 
-						if (ShatteredPixelDungeon.scene() instanceof GameScene){
+						if (SurvivalAfterDungeon.scene() instanceof GameScene){
 							GameScene.show(new WndJournalItem(image, finalTitle, finalDesc));
 						} else {
-							ShatteredPixelDungeon.scene().addToFront(new WndJournalItem(image, finalTitle, finalDesc));
+							SurvivalAfterDungeon.scene().addToFront(new WndJournalItem(image, finalTitle, finalDesc));
 						}
 
 						return true;
@@ -1004,19 +1004,19 @@ public class WndJournal extends WndTabbed {
 					if (inside(x, y)) {
 						Image sprite = new Image(icon);
 						if (seen) {
-							if (ShatteredPixelDungeon.scene() instanceof GameScene){
+							if (SurvivalAfterDungeon.scene() instanceof GameScene){
 								GameScene.show(new WndStory(sprite, doc.pageTitle(page), doc.pageBody(page)));
 							} else {
-								ShatteredPixelDungeon.scene().addToFront(new WndStory(sprite, doc.pageTitle(page), doc.pageBody(page)));
+								SurvivalAfterDungeon.scene().addToFront(new WndStory(sprite, doc.pageTitle(page), doc.pageBody(page)));
 							}
 
 							doc.readPage(page);
 							hardLightBG(1, 1, 1);
 						} else {
-							if (ShatteredPixelDungeon.scene() instanceof GameScene){
+							if (SurvivalAfterDungeon.scene() instanceof GameScene){
 								GameScene.show(new WndJournalItem(sprite, "???", Messages.get(CatalogTab.class, "not_seen_lore")));
 							} else {
-								ShatteredPixelDungeon.scene().addToFront(new WndJournalItem(sprite, "???", Messages.get(CatalogTab.class, "not_seen_lore")));
+								SurvivalAfterDungeon.scene().addToFront(new WndJournalItem(sprite, "???", Messages.get(CatalogTab.class, "not_seen_lore")));
 							}
 
 						}

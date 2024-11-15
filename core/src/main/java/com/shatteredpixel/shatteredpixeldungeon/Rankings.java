@@ -86,7 +86,7 @@ public enum Rankings {
 
 		//we trim version to just the numbers, ignoring alpha/beta, etc.
 		Pattern p = Pattern.compile("\\d+\\.\\d+\\.\\d+");
-		Matcher m = p.matcher(ShatteredPixelDungeon.version);
+		Matcher m = p.matcher(SurvivalAfterDungeon.version);
 		if (m.find()) {
 			rec.version = "v" + m.group();
 		} else {
@@ -171,7 +171,7 @@ public enum Rankings {
 	//assumes a ranking is loaded, or game is ending
 	public int calculateScore(){
 
-		if (Dungeon.initialVersion > ShatteredPixelDungeon.v1_2_3){
+		if (Dungeon.initialVersion > SurvivalAfterDungeon.v1_2_3){
 			Statistics.progressScore = Dungeon.hero.lvl * Statistics.deepestFloor * 65;
 			Statistics.progressScore = Math.min(Statistics.progressScore, 50_000);
 
@@ -340,7 +340,7 @@ public enum Rankings {
 
 		Dungeon.initialVersion = data.getInt(GAME_VERSION);
 
-		if (Dungeon.initialVersion <= ShatteredPixelDungeon.v1_2_3){
+		if (Dungeon.initialVersion <= SurvivalAfterDungeon.v1_2_3){
 			Statistics.gameWon = rec.win;
 		}
 		rec.score = calculateScore();
@@ -389,7 +389,7 @@ public enum Rankings {
 		try {
 			FileUtils.bundleToFile( RANKINGS_FILE, bundle);
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			SurvivalAfterDungeon.reportException(e);
 		}
 
 	}

@@ -23,7 +23,7 @@ package com.shatteredpixel.shatteredpixeldungeon.scenes;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Chrome;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
@@ -230,7 +230,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 0) {
 					changesSelected = 0;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				}
 			}
 		};
@@ -244,7 +244,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 1) {
 					changesSelected = 1;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				}
 			}
 		};
@@ -258,7 +258,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 2) {
 					changesSelected = 2;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				}
 			}
 		};
@@ -272,7 +272,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 3) {
 					changesSelected = 3;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				}
 			}
 		};
@@ -286,7 +286,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 4) {
 					changesSelected = 4;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				}
 			}
 		};
@@ -300,7 +300,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 5) {
 					changesSelected = 5;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				}
 			}
 		};
@@ -314,7 +314,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 6) {
 					changesSelected = 6;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				}
 			}
 		};
@@ -357,7 +357,7 @@ public class ChangesScene extends PixelScene {
 	}
 
 	public static void showChangeInfo(Image icon, String title, String... messages){
-		Scene s = ShatteredPixelDungeon.scene();
+		Scene s = SurvivalAfterDungeon.scene();
 		if (s instanceof ChangesScene){
 			((ChangesScene) s).updateChangesText(icon, title, messages);
 			return;
@@ -371,7 +371,7 @@ public class ChangesScene extends PixelScene {
 	
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade(TitleScene.class);
+		SurvivalAfterDungeon.switchNoFade(TitleScene.class);
 	}
 
 }

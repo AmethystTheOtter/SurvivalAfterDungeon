@@ -22,7 +22,7 @@
 package com.shatteredpixel.shatteredpixeldungeon.items.scrolls;
 
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Blindness;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Invisibility;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.MagicImmune;
@@ -344,9 +344,9 @@ public abstract class Scroll extends Item {
 			Scroll s = (Scroll) ingredients.get(0);
 			
 			s.quantity(s.quantity() - 1);
-			if (ShatteredPixelDungeon.scene() instanceof AlchemyScene){
+			if (SurvivalAfterDungeon.scene() instanceof AlchemyScene){
 				if (!s.isIdentified()){
-					((AlchemyScene) ShatteredPixelDungeon.scene()).showIdentify(s);
+					((AlchemyScene) SurvivalAfterDungeon.scene()).showIdentify(s);
 				}
 			} else {
 				s.identify();

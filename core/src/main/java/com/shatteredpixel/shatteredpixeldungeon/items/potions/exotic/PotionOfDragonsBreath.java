@@ -23,7 +23,7 @@ package com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Blob;
@@ -93,7 +93,7 @@ public class PotionOfDragonsBreath extends ExoticPotion {
 
 			if (cell == null && identifiedByUse){
 				showingWindow = true;
-				ShatteredPixelDungeon.runOnRenderThread(new Callback() {
+				SurvivalAfterDungeon.runOnRenderThread(new Callback() {
 					@Override
 					public void call() {
 						GameScene.show( new WndOptions(new ItemSprite(PotionOfDragonsBreath.this),

@@ -104,7 +104,7 @@ public class GamesInProgress {
 				
 				Bundle bundle = FileUtils.bundleFromFile(gameFile(slot));
 
-				if (bundle.getInt( "version" ) < ShatteredPixelDungeon.v1_4_3) {
+				if (bundle.getInt( "version" ) < SurvivalAfterDungeon.v1_4_3) {
 					info = null;
 				} else {
 
@@ -116,7 +116,7 @@ public class GamesInProgress {
 			} catch (IOException e) {
 				info = null;
 			} catch (Exception e){
-				ShatteredPixelDungeon.reportException( e );
+				SurvivalAfterDungeon.reportException( e );
 				info = null;
 			}
 			

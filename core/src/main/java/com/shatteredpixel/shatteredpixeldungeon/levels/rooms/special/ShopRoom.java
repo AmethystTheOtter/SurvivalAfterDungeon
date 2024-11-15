@@ -22,7 +22,7 @@
 package com.shatteredpixel.shatteredpixeldungeon.levels.rooms.special;
 
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Belongings;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.Shopkeeper;
@@ -207,7 +207,7 @@ public class ShopRoom extends SpecialRoom {
 		}
 
 		if (!itemsToSpawn.isEmpty()){
-			ShatteredPixelDungeon.reportException(new RuntimeException("failed to place all items in a shop!"));
+			SurvivalAfterDungeon.reportException(new RuntimeException("failed to place all items in a shop!"));
 		}
 
 	}

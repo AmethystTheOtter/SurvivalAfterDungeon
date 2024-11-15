@@ -26,7 +26,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Chrome;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.SPDAction;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.Statistics;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Belongings;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Speck;
@@ -261,7 +261,7 @@ public class AlchemyScene extends PixelScene {
 									}
 
 									if (items.size() == 0){
-										ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(AlchemyScene.class, "no_items")));
+										SurvivalAfterDungeon.scene().addToFront(new WndMessage(Messages.get(AlchemyScene.class, "no_items")));
 										return;
 									}
 
@@ -474,7 +474,7 @@ public class AlchemyScene extends PixelScene {
 				super.onClick();
 				if (Camera.main.width >= 300 && Camera.main.height >= PixelScene.MIN_HEIGHT_FULL){
 					splitAlchGuide = !splitAlchGuide;
-					ShatteredPixelDungeon.seamlessResetScene();
+					SurvivalAfterDungeon.seamlessResetScene();
 				} else {
 					clearSlots();
 					updateState();
@@ -527,7 +527,7 @@ public class AlchemyScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			SurvivalAfterDungeon.reportException(e);
 		}
 	}
 	
@@ -748,7 +748,7 @@ public class AlchemyScene extends PixelScene {
 		try {
 			Dungeon.saveAll();
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			SurvivalAfterDungeon.reportException(e);
 		}
 
 		synchronized (inputs) {
@@ -809,7 +809,7 @@ public class AlchemyScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			SurvivalAfterDungeon.reportException(e);
 		}
 		super.destroy();
 	}

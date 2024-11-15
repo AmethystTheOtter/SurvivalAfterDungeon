@@ -23,7 +23,7 @@ package com.shatteredpixel.shatteredpixeldungeon.ui;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Speck;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfMetamorphosis;
@@ -213,10 +213,10 @@ public class TalentButton extends Button {
 			toAdd = new WndInfoTalent(talent, pointsInTalent, null);
 		}
 
-		if (ShatteredPixelDungeon.scene() instanceof GameScene){
+		if (SurvivalAfterDungeon.scene() instanceof GameScene){
 			GameScene.show(toAdd);
 		} else {
-			ShatteredPixelDungeon.scene().addToFront(toAdd);
+			SurvivalAfterDungeon.scene().addToFront(toAdd);
 		}
 	}
 

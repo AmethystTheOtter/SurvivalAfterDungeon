@@ -25,7 +25,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Challenges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Blob;
@@ -1102,7 +1102,7 @@ public class CursedWand {
 					//we still consider the effect valid here though as it's cosmetic anyway
 					return false;
 				} else {
-					ShatteredPixelDungeon.runOnRenderThread(
+					SurvivalAfterDungeon.runOnRenderThread(
 							new Callback() {
 								@Override
 								public void call() {
@@ -1131,7 +1131,7 @@ public class CursedWand {
 					return false;
 				}
 			} catch(IOException e){
-				ShatteredPixelDungeon.reportException(e);
+				SurvivalAfterDungeon.reportException(e);
 				//maybe don't kill the game if the save failed, just do nothing
 				return false;
 			}

@@ -24,7 +24,7 @@ package com.shatteredpixel.shatteredpixeldungeon.items.trinkets;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.Statistics;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
@@ -128,7 +128,7 @@ public class TrinketCatalyst extends Item {
 
 			ingredients.get(0).quantity(0);
 
-			ShatteredPixelDungeon.scene().addToFront(new WndTrinket(newCata));
+			SurvivalAfterDungeon.scene().addToFront(new WndTrinket(newCata));
 			try {
 				Dungeon.saveAll(); //do a save here as pausing alch scene doesn't otherwise save
 			} catch (IOException e) {
@@ -182,7 +182,7 @@ public class TrinketCatalyst extends Item {
 				ItemButton btnReward = new ItemButton() {
 					@Override
 					protected void onClick() {
-						ShatteredPixelDungeon.scene().addToFront(new RewardWindow(item()));
+						SurvivalAfterDungeon.scene().addToFront(new RewardWindow(item()));
 					}
 				};
 				if (i == NUM_TRINKETS-1){
@@ -226,8 +226,8 @@ public class TrinketCatalyst extends Item {
 							cata.detach(Dungeon.hero.belongings.backpack);
 							Catalog.countUse(cata.getClass());
 							result.identify();
-							if (ShatteredPixelDungeon.scene() instanceof AlchemyScene) {
-								((AlchemyScene) ShatteredPixelDungeon.scene()).craftItem(null, result);
+							if (SurvivalAfterDungeon.scene() instanceof AlchemyScene) {
+								((AlchemyScene) SurvivalAfterDungeon.scene()).craftItem(null, result);
 							} else {
 								Sample.INSTANCE.play( Assets.Sounds.PUFF );
 
@@ -243,7 +243,7 @@ public class TrinketCatalyst extends Item {
 								try {
 									Dungeon.saveAll();
 								} catch (IOException e) {
-									ShatteredPixelDungeon.reportException(e);
+									SurvivalAfterDungeon.reportException(e);
 								}
 							}
 						}

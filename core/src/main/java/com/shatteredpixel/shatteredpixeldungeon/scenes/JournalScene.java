@@ -25,7 +25,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Chrome;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.Potion;
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.Scroll;
@@ -36,7 +36,6 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.TerrainFeaturesTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Archs;
 import com.shatteredpixel.shatteredpixeldungeon.ui.ExitButton;
-import com.shatteredpixel.shatteredpixeldungeon.ui.IconButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.StyledButton;
 import com.shatteredpixel.shatteredpixeldungeon.windows.IconTitle;
@@ -143,7 +142,7 @@ public class JournalScene extends PixelScene {
 				if (lastIDX != 0) {
 					lastIDX = 0;
 				}
-				ShatteredPixelDungeon.seamlessResetScene();
+				SurvivalAfterDungeon.seamlessResetScene();
 				super.onClick();
 			}
 
@@ -164,7 +163,7 @@ public class JournalScene extends PixelScene {
 				if (lastIDX != 1) {
 					lastIDX = 1;
 				}
-				ShatteredPixelDungeon.seamlessResetScene();
+				SurvivalAfterDungeon.seamlessResetScene();
 				super.onClick();
 			}
 			@Override
@@ -184,7 +183,7 @@ public class JournalScene extends PixelScene {
 				if (lastIDX != 2) {
 					lastIDX = 2;
 				}
-				ShatteredPixelDungeon.seamlessResetScene();
+				SurvivalAfterDungeon.seamlessResetScene();
 				super.onClick();
 			}
 			@Override
@@ -204,7 +203,7 @@ public class JournalScene extends PixelScene {
 				if (lastIDX != 3) {
 					lastIDX = 3;
 				}
-				ShatteredPixelDungeon.seamlessResetScene();
+				SurvivalAfterDungeon.seamlessResetScene();
 				super.onClick();
 			}
 			@Override
@@ -239,7 +238,7 @@ public class JournalScene extends PixelScene {
 
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade( TitleScene.class );
+		SurvivalAfterDungeon.switchNoFade( TitleScene.class );
 	}
 
 }

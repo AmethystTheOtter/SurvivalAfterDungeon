@@ -79,7 +79,7 @@ public class Bones {
 		try {
 			FileUtils.bundleToFile( BONES_FILE, bundle );
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			SurvivalAfterDungeon.reportException(e);
 		}
 	}
 
@@ -191,7 +191,7 @@ public class Bones {
 				try {
 					FileUtils.bundleToFile( BONES_FILE, emptyBones );
 				} catch (IOException e) {
-					ShatteredPixelDungeon.reportException(e);
+					SurvivalAfterDungeon.reportException(e);
 				}
 				depth = 0;
 

@@ -21,7 +21,7 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.windows;
 
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.SupporterScene;
@@ -115,7 +115,7 @@ public class WndVictoryCongrats extends Window {
 		RedButton btnSupport = new RedButton(Messages.get(this, "support")) {
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.switchScene(SupporterScene.class);
+				SurvivalAfterDungeon.switchScene(SupporterScene.class);
 			}
 		};
 		btnSupport.icon(Icons.GOLD.get());

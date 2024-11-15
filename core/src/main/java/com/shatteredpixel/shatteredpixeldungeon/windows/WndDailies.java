@@ -22,7 +22,7 @@
 package com.shatteredpixel.shatteredpixeldungeon.windows;
 
 import com.shatteredpixel.shatteredpixeldungeon.Rankings;
-import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SurvivalAfterDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
 import com.shatteredpixel.shatteredpixeldungeon.ui.IconButton;
@@ -67,7 +67,7 @@ public class WndDailies extends Window {
 			IconButton replayInfo = new IconButton(Icons.get(Icons.CALENDAR)){
 				@Override
 				protected void onClick() {
-					ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDailyReplay));
+					SurvivalAfterDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDailyReplay));
 				}
 
 				@Override
@@ -121,7 +121,7 @@ public class WndDailies extends Window {
 				IconButton latestInfo = new IconButton(Icons.INFO.get()){
 					@Override
 					protected void onClick() {
-						ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDaily));
+						SurvivalAfterDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDaily));
 					}
 				};
 				latestInfo.setRect(day.right()+2, top - 5, 16, 16);
