@@ -1,3 +1,3 @@
-# Shattered Pixel Dungeon
+# Survival After Dungeon
 
 beggining
