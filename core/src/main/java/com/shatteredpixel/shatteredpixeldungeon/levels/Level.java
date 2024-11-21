@@ -355,11 +355,6 @@ public abstract class Level implements Bundlable {
 	public void restoreFromBundle( Bundle bundle ) {
 
 		version = bundle.getInt( VERSION );
-		
-		//saves from before v1.4.3 are not supported
-		if (version < SurvivalAfterDungeon.v1_4_3){
-			throw new RuntimeException("old save");
-		}
 
 		setSize( bundle.getInt(WIDTH), bundle.getInt(HEIGHT));
 		

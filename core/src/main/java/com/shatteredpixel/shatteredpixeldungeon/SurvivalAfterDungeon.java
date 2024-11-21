@@ -33,89 +33,10 @@ import com.watabou.utils.PlatformSupport;
 
 public class SurvivalAfterDungeon extends Game {
 
-	//variable constants for specific older versions of shattered, used for data conversion
-	public static final int v1_2_3 = 628; //v1.2.3 is kept for now, for old rankings score logic
-
-	//savegames from versions older than v1.4.3 are no longer supported, and data from them is ignored
-	public static final int v1_4_3 = 668;
-
-	public static final int v2_0_2 = 700;
-	public static final int v2_1_4 = 737; //iOS was 737, other platforms were 736
-	public static final int v2_2_1 = 755; //iOS was 755 (also called v2.2.2), other platforms were 754
-	public static final int v2_3_2 = 768;
-	public static final int v2_4_2 = 782;
-	public static final int v2_5_0 = 794;
+	public static final int v0_1_0 = 1;
 	
 	public SurvivalAfterDungeon(PlatformSupport platform ) {
 		super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );
-
-		//pre-v2.5.2
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.bombs.FlashBangBomb.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.bombs.ShockBomb" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.bombs.SmokeBomb.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.bombs.Flashbang" );
-
-		//pre-v2.5.0
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.actors.mobs.MobSpawner.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.Level$Respawner" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Invulnerability.class,
-				"com.shatteredpixel.shatteredpixeldungeon.actors.buffs.AnkhInvulnerability" );
-
-		//pre-v2.4.0
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.UnstableBrew.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.potions.AlchemicalCatalyst" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.spells.UnstableSpell.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.spells.ArcaneCatalyst" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfFeatherFall.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.spells.FeatherFall" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfFeatherFall.FeatherBuff.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.spells.FeatherFall$FeatherBuff" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.AquaBrew.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.spells.AquaBlast" );
-
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.entrance.EntranceRoom.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.EntranceRoom" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.exit.ExitRoom.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.ExitRoom" );
-
-		//pre-v2.3.0
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.items.bombs.Bomb.ConjuredBomb.class,
-				"com.shatteredpixel.shatteredpixeldungeon.items.bombs.Bomb$MagicalBomb" );
-
-		//pre-v2.2.0
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.quest.BlacksmithRoom.QuestEntrance.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.BlacksmithRoom$QuestEntrance" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.quest.BlacksmithRoom.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.BlacksmithRoom" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.quest.MassGraveRoom.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.special.MassGraveRoom" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.quest.MassGraveRoom.Bones.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.special.MassGraveRoom$Bones" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.quest.RitualSiteRoom.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.RitualSiteRoom" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.quest.RitualSiteRoom.RitualMarker.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.RitualSiteRoom$RitualMarker" );
-		com.watabou.utils.Bundle.addAlias(
-				com.shatteredpixel.shatteredpixeldungeon.levels.rooms.quest.RotGardenRoom.class,
-				"com.shatteredpixel.shatteredpixeldungeon.levels.rooms.special.RotGardenRoom" );
 	}
 	
 	@Override

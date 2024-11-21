@@ -104,7 +104,7 @@ public class GamesInProgress {
 				
 				Bundle bundle = FileUtils.bundleFromFile(gameFile(slot));
 
-				if (bundle.getInt( "version" ) < SurvivalAfterDungeon.v1_4_3) {
+				if (bundle.getInt( "version" ) < SurvivalAfterDungeon.v0_1_0) {
 					info = null;
 				} else {
 
