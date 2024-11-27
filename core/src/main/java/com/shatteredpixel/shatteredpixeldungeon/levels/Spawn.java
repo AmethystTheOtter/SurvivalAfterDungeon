@@ -20,19 +20,19 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.levels;
-
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.levels.features.LevelTransition;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.watabou.noosa.audio.Music;
-import com.watabou.utils.Rect;
-
 
 public class Spawn extends Level {
 
 	{
 		color1 = 0x534f3e;
 		color2 = 0xb9d661;
+
+		viewDistance = 10;
 	}
 
 	@Override
@@ -53,13 +53,6 @@ public class Spawn extends Level {
 	private static int WIDTH = 100;
 	private static int HEIGHT = 100;
 
-	public static Rect diggableArea = new Rect(2, 11, 31, 40);
-	public static Rect mainArena = new Rect(5, 14, 28, 37);
-	public static Rect gate = new Rect(14, 13, 19, 14);
-	public static int[] pylonPositions = new int[]{ 4 + 13*WIDTH, 28 + 13*WIDTH, 4 + 37*WIDTH, 28 + 37*WIDTH };
-
-
-
 	@Override
 	protected boolean build() {
 
@@ -67,8 +60,11 @@ public class Spawn extends Level {
 
 		//setup exit area above main boss arena
 		Painter.fill(this, 0, 0, 99, 99, Terrain.EMPTY);
+		Painter.fill(this, 49, 49, 1, 1, Terrain.ENTRANCE);
+		LevelTransition exit = new LevelTransition(this, 1, LevelTransition.Type.REGULAR_EXIT);
+		exit.set(Math.round(WIDTH),Math.round(HEIGHT),Math.round(WIDTH),Math.round(HEIGHT));
+		transitions.add(exit);
 		return true;
-
 	}
 
 	@Override
@@ -83,7 +79,7 @@ public class Spawn extends Level {
 
 
 	@Override
-	public String tileName( int tile ) {
+	public String tileName(int tile) {
 		switch (tile) {
 			case Terrain.GRASS:
 				return Messages.get(CavesLevel.class, "grass_name");
@@ -95,15 +91,15 @@ public class Spawn extends Level {
 				//city statues are used
 				return Messages.get(CityLevel.class, "statue_name");
 			default:
-				return super.tileName( tile );
+				return super.tileName(tile);
 		}
 	}
 
 	@Override
-	public String tileDesc( int tile ) {
+	public String tileDesc(int tile) {
 		switch (tile) {
 			case Terrain.WATER:
-				return super.tileDesc( tile ) + "\n\n" + Messages.get(Spawn.class, "water_desc");
+				return super.tileDesc(tile) + "\n\n" + Messages.get(Spawn.class, "water_desc");
 			case Terrain.ENTRANCE:
 			case Terrain.ENTRANCE_SP:
 				return Messages.get(CavesLevel.class, "entrance_desc");
@@ -120,9 +116,7 @@ public class Spawn extends Level {
 			case Terrain.STATUE:
 				return Messages.get(CityLevel.class, "statue_desc");
 			default:
-				return super.tileDesc( tile );
+				return super.tileDesc(tile);
 		}
 	}
-
-
 }
