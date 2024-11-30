@@ -308,11 +308,13 @@ public class Dungeon {
 		if (branch == 0) {
 			switch (depth) {
 				case 1:
-				case 2:
-				case 3:
-				case 4:
 					level = new Spawn();
 					break;
+				case 2:
+					level = new SewerLevel();
+					break;
+				case 3:
+				case 4:
 				case 5:
 					level = new SewerBossLevel();
 					break;
@@ -941,8 +943,10 @@ public class Dungeon {
 		}
 
 		//always visit adjacent tiles, even if they aren't seen
-		for (int i : PathFinder.NEIGHBOURS9){
+		for (int i : PathFinder.NEIGHBOURS9) try {
 			level.visited[hero.pos+i] = true;
+		} catch (Exception ignored){
+
 		}
 	
 		GameScene.updateFog(l, t, width, height);

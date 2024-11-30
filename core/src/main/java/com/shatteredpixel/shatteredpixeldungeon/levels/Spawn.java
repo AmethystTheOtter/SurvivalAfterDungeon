@@ -20,6 +20,8 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.levels;
+import static com.shatteredpixel.shatteredpixeldungeon.Dungeon.hero;
+
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.levels.features.LevelTransition;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
@@ -50,8 +52,8 @@ public class Spawn extends Level {
 		return Assets.Environment.WATER_CAVES;
 	}
 
-	private static int WIDTH = 100;
-	private static int HEIGHT = 100;
+	private static int WIDTH = 201;
+	private static int HEIGHT = 201;
 
 	@Override
 	protected boolean build() {
@@ -59,10 +61,10 @@ public class Spawn extends Level {
 		setSize(WIDTH, HEIGHT);
 
 		//setup exit area above main boss arena
-		Painter.fill(this, 0, 0, 99, 99, Terrain.EMPTY);
-		Painter.fill(this, 49, 49, 1, 1, Terrain.ENTRANCE);
-		LevelTransition exit = new LevelTransition(this, 1, LevelTransition.Type.REGULAR_EXIT);
-		exit.set(Math.round(WIDTH),Math.round(HEIGHT),Math.round(WIDTH),Math.round(HEIGHT));
+		Painter.fill(this, 0, 0, 200, 200, Terrain.EMPTY);
+		Painter.fill(this, 100, 100, 1, 1, Terrain.ENTRANCE);
+		LevelTransition exit = new LevelTransition(this, 20201, LevelTransition.Type.REGULAR_EXIT);
+		exit.set(Math.round(WIDTH*0.5f),Math.round(HEIGHT*0.5f),Math.round(WIDTH*0.5f),Math.round(HEIGHT*0.5f));
 		transitions.add(exit);
 		return true;
 	}
